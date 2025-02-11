@@ -63,7 +63,10 @@ main {
   } */
 
   img {
-    margin-bottom: 40px;
+    /* Using negative margins & increase the width to expand through the container's inline paddings  */
+    margin: 0 -32px 40px -32px;
+    width: calc(100% + (2 * 32px));
+    height: auto;
   }
 
   h1 {
@@ -100,10 +103,6 @@ main {
 }
 
 img {
-  /* Using negative margins & increase the width to expand through the container's inline paddings  */
-  margin: 0 -32px 0 -32px;
-  width: calc(100% + (2 * 32px));
-  height: auto;
   display: block;
   object-fit: cover;
   /* outline: 1px solid orange; */
