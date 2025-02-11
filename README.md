@@ -9,7 +9,7 @@
 
 - Applied mobile design.
 - Wrapped the solution inside article, as it contains information that can be distributed independently. [^1]
-- TODO: Change the `table` contains the nutrition list with `dl` element.
+- Put the nutrition list inside `dl` element.
 
 ## HTML Issues
 
@@ -19,13 +19,13 @@ I added an alternate text to the `img`, but on [MDN Image Guide](https://develop
 
 ### Each `h2` and its following content is wrapped inside `section`
 
-I'm not sure if it's always better to wrap `h2` and its following content inside `section`.
+I'm not sure if it's a best practice to always wrap `h2` and its following content inside `section`, and also in which cases the section is not needed.
 
 ### `<header>` inside `<main>`
 
 Currently, `h1` and `p` elements are directly inside `article`. I asked _Chrome AI Assistant_ on the `article` element if it's better to wrap the `h1` and `p` with the `header`, and the response was that it's a good practice but not mandatory. It could enhance the semantic structure and provide a clear container for introductory content. But having only two elements `h1` and `p`, adding `header` might be considered unnecessary complexity.
 
-`header` inside `main` is an example on [Webdev Semantic HTML](https://web.dev/learn/html/semantic-html)
+The `header` inside `main` is an example in [Webdev Semantic HTML](https://web.dev/learn/html/semantic-html).
 
 ### Use `ul` & `ol` or `dl`
 
@@ -35,7 +35,7 @@ The list items within the preparation time and instructions sections, contain a 
 
 ### Section styling
 
-Preparation section is a sibling of other sections. This make the CSS styling of other sections a bit complex:
+Preparation section is a sibling of other sections, which makes the CSS styling of other sections a bit more complex:
 
 ```css
 /* Start from 3nd section */
@@ -49,7 +49,7 @@ section:nth-of-type(1n + 2):not(:last-of-type) {
 }
 ```
 
-If `header`, `p`, and preparation `section` is put inside `div`, styling other sections can use `:not(:first-of-type)` and `:not(:last-of-type)`.
+If the `header`, `p`, and preparation `section` are put inside `div`, styling other sections can be more simple with `:not(:first-of-type)` and `:not(:last-of-type)`.
 
 ## Others
 
