@@ -1,6 +1,11 @@
 # Notes
 
-# Html Implementation
+## Links
+
+- Challenge URL: [https://www.frontendmentor.io/challenges/recipe-page-KiTsR8QQKm](https://www.frontendmentor.io/challenges/recipe-page-KiTsR8QQKm)
+- Live Site URL: [https://finkusuma-dev.github.io/fem-recipe-page](https://finkusuma-dev.github.io/fem-recipe-page)
+
+## HTML Implementation
 
 - Applied mobile design.
 - Wrapped the solution inside article, as it contains information that can be distributed independently. [^1]
