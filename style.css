@@ -131,6 +131,37 @@ li {
   font-weight: 700;
 }
 
+dl {
+  display: flex;
+  flex-wrap: wrap;
+  /* column-gap: 16px; */
+}
+
+dt,
+dd {
+  width: 50%;
+}
+
+dt:not(:first-of-type),
+dd:not(:first-of-type) {
+  padding-top: 12px;
+}
+dt:not(:last-of-type),
+dd:not(:last-of-type) {
+  border-bottom: 1px solid var(--color-Stone-150);
+  padding-bottom: 11px;
+}
+
+dt {
+  padding-inline: 32px 8px;
+}
+
+dd {
+  padding-inline: 8px 32px;
+  color: var(--color-Rose-800);
+  font-weight: bold;
+}
+
 .attribution {
   border-top: 1px dashed var(--color-Stone-600);
   padding-block: 12px;
