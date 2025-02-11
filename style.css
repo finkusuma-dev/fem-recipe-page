@@ -117,9 +117,16 @@ h2 {
   color: var(--color-Rose-800);
 }
 
+ul li {
+  margin-left: calc(1.4ch + 8px);
+}
+
+ol li {
+  margin-left: calc(1.5ch + 8px);
+}
+
 li {
-  margin-left: 2ch;
-  padding-left: 19px;
+  padding-left: 16px;
 
   + li {
     margin-top: 8px;
