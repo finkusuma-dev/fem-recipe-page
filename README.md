@@ -7,7 +7,7 @@
 
 ## HTML Implementation
 
-- Applied mobile design.
+- Applied mobile design (not yet applied the rem unit).
 - Wrapped the solution inside article, as it contains information that can be distributed independently. [^1]
 - Put the nutrition list inside `dl` element.
 
@@ -34,7 +34,7 @@ The list items within the preparation time and instructions sections, contain a 
 ## CSS Implementation
 
 - `img` element (mobile design): To make the `img` element full width, use negative margin and increase the width to extend through the inline paddings.
-- list-item element: Before setting the margin and padding of the list-item according to Figma, first set the margin to align the marker with the text above it.
+- list-item element (margin & padding): Before setting the margin and padding of the list-item according to Figma, first set the margin to align the marker with the text above it.
 
   ```css
   ul li {
@@ -65,6 +65,7 @@ The list items within the preparation time and instructions sections, contain a 
   <img src="./_docs/li_apply_margin_padding.jpg" width="300">
 
 - Nutrition list: Use `flex` with `flex-wrap` on `dl` element and set `dt` and `dd` to `50%` width. And then set the inline padding for both elements according to their size in Figma.
+- TODO: list-item element (marker position): Make the marker stretch along with the list item height.
 
 ## CSS Issues
 
