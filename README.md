@@ -25,11 +25,46 @@ I'm not sure if it's a best practice to always wrap `h2` and its following conte
 
 Currently, `h1` and `p` elements are directly inside `article`. I asked _Chrome AI Assistant_ on the `article` element if it's better to wrap the `h1` and `p` with the `header`, and the response was that it's a good practice but not mandatory. It could enhance the semantic structure and provide a clear container for introductory content. But having only two elements `h1` and `p`, adding `header` might be considered unnecessary complexity.
 
-The `header` inside `main` is an example in [Webdev Semantic HTML](https://web.dev/learn/html/semantic-html).
+The `header` inside `main` is an example in [WebDev Semantic HTML](https://web.dev/learn/html/semantic-html).
 
 ### Use `ul` & `ol` or `dl`
 
 The list items within the preparation time and instructions sections, contain a strong element with text and a colon. I'm not sure if it's better use `dl` element with `dt` and `dd` instead.
+
+## CSS Implementation
+
+- `img` element (mobile design): To make the `img` element full width, use negative margin and increase the width to extend through the inline paddings.
+- list-item element: Before setting the margin and padding of the list-item according to Figma, first set the margin to align the marker with the text above it.
+
+  ```css
+  ul li {
+    margin-left: 15px;
+  }
+
+  ol li {
+    margin-left: 16px;
+  }
+  ```
+
+  <img src="./_docs/li_align.jpg" width="300">
+
+  And then set the margin and padding accordingly:
+
+  ```css
+  ul li {
+    margin-left: calc(15px + 8px);
+    padding-left: 16px;
+  }
+
+  ol li {
+    margin-left: calc(16px + 8px);
+    padding-left: 16px;
+  }
+  ```
+
+  <img src="./_docs/li_apply_margin_padding.jpg" width="300">
+
+- Nutrition list: Use `flex` with `flex-wrap` on `dl` element and set `dt` and `dd` to `50%` width. And then set the inline padding for both elements according to their size in Figma.
 
 ## CSS Issues
 
@@ -38,18 +73,18 @@ The list items within the preparation time and instructions sections, contain a 
 Preparation section is a sibling of other sections, which makes the CSS styling of other sections a bit more complex:
 
 ```css
-/* Start from 3nd section */
+/* Start from 3th section */
 section:nth-of-type(1n + 3) {
   padding-top: 32px;
 }
-/* Start from 2nd section, and not the last section*/
+/* Start from 2nd section, and doesn't include the last section*/
 section:nth-of-type(1n + 2):not(:last-of-type) {
   padding-bottom: 32px;
   border-bottom: 1px solid var(--color-Stone-150);
 }
 ```
 
-If the `header`, `p`, and preparation `section` are put inside `div`, styling other sections can be more simple with `:not(:first-of-type)` and `:not(:last-of-type)`.
+If the preparation `section` or the `header`, `p`, and preparation `section` are put inside `div`, styling other sections can be more simple with `section:not(:first-of-type)` and `section:not(:last-of-type)`.
 
 ## Others
 
