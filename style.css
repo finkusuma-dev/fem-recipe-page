@@ -119,11 +119,13 @@ h2 {
 }
 
 ul li {
-  margin-left: calc(1.4ch + 8px);
+  /* margin-left: calc(1.4ch); */
+  margin-left: calc(15px + 8px);
 }
 
 ol li {
-  margin-left: calc(1.5ch + 8px);
+  /* margin-left: calc(1.5ch); */
+  margin-left: calc(16px + 8px);
 }
 
 li {
