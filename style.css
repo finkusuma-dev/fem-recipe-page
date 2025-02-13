@@ -121,26 +121,62 @@ h2 {
   color: var(--color-Rose-800);
 }
 
-ul li {
-  /* margin-left: calc(1.4ch); */
-  margin-left: calc(15px + 8px);
+ul {
+  list-style: none;
+
+  li {
+    padding-left: 40px;
+    position: relative;
+
+    /* .bullet {
+      width: 16px;
+      margin-left: 8px;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+    }
+
+    .bullet::before {
+      content: '';
+      background-color: var(--color-Rose-800);
+      width: 4px;
+      height: 4px;
+      border-radius: 4px;
+    } */
+  }
+
+  li::before {
+    /* Visual circle */
+    width: 4px;
+    height: 4px;
+    border-radius: 4px;
+    background-color: var(--color-Rose-800);
+
+    /* Visual circle positioning, stretch along `li` height */
+    top: 50%;
+    left: 8px;
+    transform: translateY(-50%);
+    position: absolute;
+
+    /* Visually hidden circle character to make screenreaders announce the bullet character */
+    content: '\2022';
+    color: transparent;
+  }
 }
 
 ol li {
   /* margin-left: calc(1.5ch); */
   margin-left: calc(16px + 8px);
+  padding-left: 16px;
 }
 
 li {
-  padding-left: 16px;
-
   + li {
     margin-top: 8px;
   }
 }
 
 ::marker {
-  height: 100%;
   color: var(--color-Rose-800);
   font-weight: 700;
 }
