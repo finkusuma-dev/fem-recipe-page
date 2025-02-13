@@ -145,9 +145,8 @@ li {
   font-weight: 700;
 }
 
-table,
-tbody {
-  border-spacing: 0;
+table {
+  border-collapse: collapse;
 }
 
 th,
