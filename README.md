@@ -64,14 +64,35 @@ The list items within the preparation time and instructions sections, contain a 
 
   <img src="./_docs/li_apply_margin_padding.jpg" width="300">
 
-- Nutrition list: Use `flex` with `flex-wrap` on `dl` element and set `dt` and `dd` to `50%` width. And then set the inline padding for both elements according to their size in Figma.
+- Nutrition list: table has addition spaces despite tr has correct height.
+
+  Fix:
+
+  ```css
+  table,
+  tbody {
+    border-spacing: 0;
+  }
+  ```
+
+  `th` and `td` width are not equal.
+
+  Fix:
+
+  ```css
+  th,
+  td {
+    width: 50%;
+  }
+  ```
+
 - TODO: list-item element (marker position): Make the marker stretch along with the list item height.
 
 ## CSS Issues
 
 ### Section styling
 
-Preparation section is a sibling of other sections, which makes the CSS styling of other sections a bit more complex:
+Preparation section is the first sibling of other sections, which makes the CSS styling of other sections a bit more complex:
 
 ```css
 /* Start from 3th section */
@@ -96,6 +117,9 @@ If the preparation `section` or the `header`, `p`, and preparation `section` are
 - https://www.w3.org/WAI/ARIA/apg/
 - https://www.w3.org/WAI/ARIA/apg/patterns/landmarks/examples/general-principles.html
 - https://web.dev/learn/html/semantic-html?continue=https%3A%2F%2Fweb.dev%2Flearn%2Fhtml%2F%23article-https%3A%2F%2Fweb.dev%2Flearn%2Fhtml%2Fsemantic-html
+- https://discord.com/channels/824970620529279006/1339214865243312128/1339227042784481290 - Grace Snow's feedback on discord about the same challenge.
+- https://stackoverflow.com/questions/8900571/two-column-table-or-dl - Simple guide to choose whether to use two columns table or description list.
+- https://www.w3.org/WAI/tutorials/tables/, https://www.w3.org/WAI/EO/Drafts/tutorials/tables/scope/ - W3C tutorial on scope of headers.
 
 ---
 
