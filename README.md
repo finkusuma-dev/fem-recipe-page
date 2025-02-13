@@ -5,11 +5,11 @@
 - Challenge URL: [https://www.frontendmentor.io/challenges/recipe-page-KiTsR8QQKm](https://www.frontendmentor.io/challenges/recipe-page-KiTsR8QQKm)
 - Live Site URL: [https://finkusuma-dev.github.io/fem-recipe-page](https://finkusuma-dev.github.io/fem-recipe-page)
 
-## HTML Implementation
+## HTML Implementations
 
 - Applied mobile design (not yet applied the rem unit).
 - Wrapped the solution inside article, as it contains information that can be distributed independently. [^1]
-- Put the nutrition list inside `dl` element.
+- Put the nutrition list inside a `table` element.
 
 ## HTML Issues
 
@@ -29,12 +29,21 @@ The `header` inside `main` is an example in [WebDev Semantic HTML](https://web.d
 
 ### Use `ul` & `ol` or `dl`
 
-The list items within the preparation time and instructions sections, contain a strong element with text and a colon. I'm not sure if it's better use `dl` element with `dt` and `dd` instead.
+The list items within the instructions sections, contain a strong element with text and a colon. Is there any chance of using `dl` element for this?
 
-## CSS Implementation
+## CSS Implementations
 
 - `img` element (mobile design): To make the `img` element full width, use negative margin and increase the width to extend through the inline paddings.
-- list-item element (margin & padding): Before setting the margin and padding of the list-item according to Figma, first set the margin to align the marker with the text above it.
+- list-item element (margin & padding): Before setting the margin and padding of the list-item according to Figma, first reset the margin & padding using:
+
+  ```css
+  * {
+    margin: 0;
+    padding: 0;
+  }
+  ```
+
+  Then set the margin to align the marker with the text above it.
 
   ```css
   ul li {
@@ -64,20 +73,54 @@ The list items within the preparation time and instructions sections, contain a 
 
   <img src="./_docs/li_apply_margin_padding.jpg" width="300">
 
-- Nutrition list: table has addition spaces despite tr has correct height.
+- Make the list-item marker stretch along the list item height.
 
-  Fix:
+  After trial and error, this is what I came up with. I removed the list-style using `list-style: none`. Then created a new bullet (circle shape) using `li::before` pseudo-element. I positioned it vertically center using `position:absolute; top:50%; transform: translateY(-50%);`. It worked, but there was a problem, screenreaders didn't announce the bullet character.
+
+  Then I removed the circle shape and used `content: '\2020'` to add the bullet character. The screenreader did announce it, but it was really difficult to precisely center the character vertically.
+
+  My final solution is adding the circle shape again, but then hide the bullet character using `color: transparent`.
 
   ```css
-  table,
-  tbody {
-    border-spacing: 0;
+  ul {
+    list-style: none;
+  }
+
+  li {
+    padding-left: 40px;
+    position: relative;
+  }
+
+  li::before {
+    /* Visual circle */
+    width: 4px;
+    height: 4px;
+    border-radius: 4px;
+    background-color: var(--color-Rose-800);
+
+    /* Visual circle positioning, stretch along `li` height */
+    top: 50%;
+    left: 8px;
+    transform: translateY(-50%);
+    position: absolute;
+
+    /* Visually hidden circle character so screenreader will announce: "bullet" */
+    content: '\2022';
+    color: transparent;
   }
   ```
 
-  `th` and `td` width are not equal.
+- Nutrition list: The table had addition spaces somewhere that made overall height was more than the total height of the rows. This caused by default `border-collapse` property is `separate`, which separate the border between cells. To fix this I set `border-collapse` to `collapse`.
 
-  Fix:
+  ```css
+  table {
+    border-collapse: collapse;
+  }
+  ```
+
+  There was also issue where `th` (1st column) and `td` (2nd column) width are not equal. When the table occupies the parent's width, the column's width distribution is affected by the basis width each of the column. And each of the column's width depends on the most wide cell in that column, which is impacted by the cell content.
+
+  To make both columns equal, I set the width to `50%`.
 
   ```css
   th,
@@ -85,8 +128,6 @@ The list items within the preparation time and instructions sections, contain a 
     width: 50%;
   }
   ```
-
-- TODO: list-item element (marker position): Make the marker stretch along with the list item height.
 
 ## CSS Issues
 
@@ -120,6 +161,7 @@ If the preparation `section` or the `header`, `p`, and preparation `section` are
 - https://discord.com/channels/824970620529279006/1339214865243312128/1339227042784481290 - Grace Snow's feedback on discord about the same challenge.
 - https://stackoverflow.com/questions/8900571/two-column-table-or-dl - Simple guide to choose whether to use two columns table or description list.
 - https://www.w3.org/WAI/tutorials/tables/, https://www.w3.org/WAI/EO/Drafts/tutorials/tables/scope/ - W3C tutorial on scope of headers.
+- https://css-tricks.com/everything-you-need-to-know-about-the-gap-after-the-list-marker/ - Unicode characters that can be used as a custom list marker.
 
 ---
 
