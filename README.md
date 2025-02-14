@@ -1,19 +1,40 @@
-# Notes
+# Frontend Mentor - Recipe page solution
+
+This is a solution to the [Recipe page challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/recipe-page-KiTsR8QQKm). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
+
+## Table of contents
+
+- [Frontend Mentor - Recipe page solution](#frontend-mentor---recipe-page-solution)
+  - [Table of contents](#table-of-contents)
+  - [Links](#links)
+  - [My Process](#my-process)
+    - [HTML Implementations](#html-implementations)
+    - [HTML Issues](#html-issues)
+      - [`<img>` alternate text](#img-alternate-text)
+    - [Each `h2` and its following content is wrapped inside `section`](#each-h2-and-its-following-content-is-wrapped-inside-section)
+      - [`<header>` inside `<main>`](#header-inside-main)
+      - [Use `ul` \& `ol` or `dl`](#use-ul--ol-or-dl)
+    - [CSS Implementations](#css-implementations)
+    - [CSS Issues](#css-issues)
+      - [Section styling](#section-styling)
+    - [Useful Resources](#useful-resources)
 
 ## Links
 
 - Challenge URL: [https://www.frontendmentor.io/challenges/recipe-page-KiTsR8QQKm](https://www.frontendmentor.io/challenges/recipe-page-KiTsR8QQKm)
 - Live Site URL: [https://finkusuma-dev.github.io/fem-recipe-page](https://finkusuma-dev.github.io/fem-recipe-page)
 
-## HTML Implementations
+## My Process
+
+### HTML Implementations
 
 - Applied mobile design (not yet applied the rem unit).
 - Wrapped the solution inside article, as it contains information that can be distributed independently. [^1]
 - Put the nutrition list inside a `table` element.
 
-## HTML Issues
+### HTML Issues
 
-### `<img>` alternate text
+#### `<img>` alternate text
 
 I added an alternate text to the `img`, but on [MDN Image Guide](https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Structuring_content/HTML_images#alternative_text), it mentions `alt` can be empty if the body adequately describes the image. Currently, I'm unsure if the image is sufficiently described by this text on the paragraph: "This classic omelette combines beaten eggs cooked to perfection, optionally filled with your choice of cheese, vegetables, or meats."
 
@@ -21,17 +42,17 @@ I added an alternate text to the `img`, but on [MDN Image Guide](https://develop
 
 I'm not sure if it's a best practice to always wrap `h2` and its following content inside `section`, and also in which cases the section is not needed.
 
-### `<header>` inside `<main>`
+#### `<header>` inside `<main>`
 
 Currently, `h1` and `p` elements are directly inside `article`. I asked _Chrome AI Assistant_ on the `article` element if it's better to wrap the `h1` and `p` with the `header`, and the response was that it's a good practice but not mandatory. It could enhance the semantic structure and provide a clear container for introductory content. But having only two elements `h1` and `p`, adding `header` might be considered unnecessary complexity.
 
 The `header` inside `main` is an example in [WebDev Semantic HTML](https://web.dev/learn/html/semantic-html).
 
-### Use `ul` & `ol` or `dl`
+#### Use `ul` & `ol` or `dl`
 
 The list items within the instructions sections, contain a strong element with text and a colon. Is there any chance of using `dl` element for this?
 
-## CSS Implementations
+### CSS Implementations
 
 - `img` element (mobile design): To make the `img` element full width, use negative margin and increase the width to extend through the inline paddings.
 - list-item element (margin & padding): Before setting the margin and padding of the list-item according to Figma, first reset the margin & padding using:
@@ -73,13 +94,13 @@ The list items within the instructions sections, contain a strong element with t
 
   <img src="./_docs/li_apply_margin_padding.jpg" width="300">
 
-- Make the list-item marker stretch along the list item height.
+- Make the list-item marker stretch along the `li` height.
 
-  After trial and error, this is what I came up with. I removed the list-style using `list-style: none`. Then created a new bullet (circle shape) using `li::before` pseudo-element. I positioned it vertically center using `position:absolute; top:50%; transform: translateY(-50%);`. It worked, but there was a problem, screenreaders didn't announce the bullet character.
+  After trial and error, this is what I came up with. I removed the list-style using `list-style: none`. Then created a new bullet (a circle shape) using `li::before` pseudo-element. I positioned it vertically center using `position:absolute; top:50%; transform: translateY(-50%);`. It worked, but there was a problem, screenreaders didn't announce the bullet character.
 
   Then I removed the circle shape and used `content: '\2020'` to add the bullet character. The screenreader did announce it, but it was really difficult to precisely center the character vertically.
 
-  My final solution is adding the circle shape again, but then hide the bullet character using `color: transparent`.
+  My final solution is adding the circle shape again, but then hide the bullet character by setting the `color` to `transparent`.
 
   ```css
   ul {
@@ -98,13 +119,13 @@ The list items within the instructions sections, contain a strong element with t
     border-radius: 4px;
     background-color: var(--color-Rose-800);
 
-    /* Visual circle positioning, stretch along `li` height */
+    /* Visual circle positioning, stretch along the `li` height */
     top: 50%;
     left: 8px;
     transform: translateY(-50%);
     position: absolute;
 
-    /* Visually hidden circle character so screenreader will announce: "bullet" */
+    /* Visually hidden circle character so screenreader will announce the bullet character */
     content: '\2022';
     color: transparent;
   }
@@ -129,9 +150,9 @@ The list items within the instructions sections, contain a strong element with t
   }
   ```
 
-## CSS Issues
+### CSS Issues
 
-### Section styling
+#### Section styling
 
 Preparation section is the first sibling of other sections, which makes the CSS styling of other sections a bit more complex:
 
@@ -149,11 +170,9 @@ section:nth-of-type(1n + 2):not(:last-of-type) {
 
 If the preparation `section` or the `header`, `p`, and preparation `section` are put inside `div`, styling other sections can be more simple with `section:not(:first-of-type)` and `section:not(:last-of-type)`.
 
-## Others
-
 - Screen readers: orca (linux), NVDA, Jaws (windows), talkback (android). Currently, using orca and talkback to test the accessibility of the page.
 
-## Resources
+### Useful Resources
 
 - https://www.w3.org/WAI/ARIA/apg/
 - https://www.w3.org/WAI/ARIA/apg/patterns/landmarks/examples/general-principles.html
