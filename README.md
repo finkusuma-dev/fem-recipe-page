@@ -8,15 +8,17 @@ This is a solution to the [Recipe page challenge on Frontend Mentor](https://www
   - [Table of contents](#table-of-contents)
   - [Links](#links)
   - [My Process](#my-process)
+    - [Built with](#built-with)
     - [HTML Implementations](#html-implementations)
     - [HTML Issues](#html-issues)
-      - [`<img>` alternate text](#img-alternate-text)
-    - [Each `h2` and its following content is wrapped inside `section`](#each-h2-and-its-following-content-is-wrapped-inside-section)
-      - [`<header>` inside `<main>`](#header-inside-main)
-      - [Use `ul` \& `ol` or `dl`](#use-ul--ol-or-dl)
+      - [🔵 `<img>` alternate text](#-img-alternate-text)
+      - [🔵 Each `h2` and its following content is wrapped inside `section`](#-each-h2-and-its-following-content-is-wrapped-inside-section)
+      - [🔵 `<header>` inside `<main>`](#-header-inside-main)
     - [CSS Implementations](#css-implementations)
     - [CSS Issues](#css-issues)
-      - [Section styling](#section-styling)
+      - [🔵 Section styling](#-section-styling)
+    - [Notes](#notes)
+    - [Continued development](#continued-development)
     - [Useful Resources](#useful-resources)
 
 ## Links
@@ -26,36 +28,38 @@ This is a solution to the [Recipe page challenge on Frontend Mentor](https://www
 
 ## My Process
 
+### Built with
+
+- Semantic HTML5 markup
+- CSS custom properties
+- Flexbox
+- Mobile-first workflow
+
 ### HTML Implementations
 
-- Applied mobile design (not yet applied the rem unit).
 - Wrapped the solution inside article, as it contains information that can be distributed independently. [^1]
 - Put the nutrition list inside a `table` element.
 
 ### HTML Issues
 
-#### `<img>` alternate text
+#### 🔵 `<img>` alternate text
 
 I added an alternate text to the `img`, but on [MDN Image Guide](https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Structuring_content/HTML_images#alternative_text), it mentions `alt` can be empty if the body adequately describes the image. Currently, I'm unsure if the image is sufficiently described by this text on the paragraph: "This classic omelette combines beaten eggs cooked to perfection, optionally filled with your choice of cheese, vegetables, or meats."
 
-### Each `h2` and its following content is wrapped inside `section`
+#### 🔵 Each `h2` and its following content is wrapped inside `section`
 
 I'm not sure if it's a best practice to always wrap `h2` and its following content inside `section`, and also in which cases the section is not needed.
 
-#### `<header>` inside `<main>`
+#### 🔵 `<header>` inside `<main>`
 
 Currently, `h1` and `p` elements are directly inside `article`. I asked _Chrome AI Assistant_ on the `article` element if it's better to wrap the `h1` and `p` with the `header`, and the response was that it's a good practice but not mandatory. It could enhance the semantic structure and provide a clear container for introductory content. But having only two elements `h1` and `p`, adding `header` might be considered unnecessary complexity.
 
 The `header` inside `main` is an example in [WebDev Semantic HTML](https://web.dev/learn/html/semantic-html).
 
-#### Use `ul` & `ol` or `dl`
-
-The list items within the instructions sections, contain a strong element with text and a colon. Is there any chance of using `dl` element for this?
-
 ### CSS Implementations
 
-- `img` element (mobile design): To make the `img` element full width, use negative margin and increase the width to extend through the inline paddings.
-- list-item element (margin & padding): Before setting the margin and padding of the list-item according to Figma, first reset the margin & padding using:
+- Positioning the image element on the mobile design. To make the image element full width, use negative margin and increase the width to extend through the inline paddings.
+- Creating marker spacing on the Instructions list. Before setting the margin and padding of the list-item according to Figma, first reset the margin & padding using:
 
   ```css
   * {
@@ -67,32 +71,23 @@ The list items within the instructions sections, contain a strong element with t
   Then set the margin to align the marker with the text above it.
 
   ```css
-  ul li {
-    margin-left: 15px;
-  }
-
   ol li {
     margin-left: 16px;
   }
   ```
 
-  <img src="./_docs/li_align.jpg" width="300">
+  <img src="./_docs/images/li_align.jpg" width="300">
 
   And then set the margin and padding accordingly:
 
   ```css
-  ul li {
-    margin-left: calc(15px + 8px);
-    padding-left: 16px;
-  }
-
   ol li {
     margin-left: calc(16px + 8px);
     padding-left: 16px;
   }
   ```
 
-  <img src="./_docs/li_apply_margin_padding.jpg" width="300">
+  <img src="./_docs/images/li_apply_margin_padding.jpg" width="300">
 
 - Make the list-item marker stretch along the `li` height.
 
@@ -152,7 +147,7 @@ The list items within the instructions sections, contain a strong element with t
 
 ### CSS Issues
 
-#### Section styling
+#### 🔵 Section styling
 
 Preparation section is the first sibling of other sections, which makes the CSS styling of other sections a bit more complex:
 
@@ -170,17 +165,21 @@ section:nth-of-type(1n + 2):not(:last-of-type) {
 
 If the preparation `section` or the `header`, `p`, and preparation `section` are put inside `div`, styling other sections can be more simple with `section:not(:first-of-type)` and `section:not(:last-of-type)`.
 
+### Notes
+
 - Screen readers: orca (linux), NVDA, Jaws (windows), talkback (android). Currently, using orca and talkback to test the accessibility of the page.
+
+### Continued development
 
 ### Useful Resources
 
 - https://www.w3.org/WAI/ARIA/apg/
 - https://www.w3.org/WAI/ARIA/apg/patterns/landmarks/examples/general-principles.html
 - https://web.dev/learn/html/semantic-html?continue=https%3A%2F%2Fweb.dev%2Flearn%2Fhtml%2F%23article-https%3A%2F%2Fweb.dev%2Flearn%2Fhtml%2Fsemantic-html
-- https://discord.com/channels/824970620529279006/1339214865243312128/1339227042784481290 - Grace Snow's feedback on discord about the same challenge.
+- https://discord.com/channels/824970620529279006/1339214865243312128/1339227042784481290 - Grace Snow's discord feedback on the same challenge.
 - https://stackoverflow.com/questions/8900571/two-column-table-or-dl - Simple guide to choose whether to use two columns table or description list.
 - https://www.w3.org/WAI/tutorials/tables/, https://www.w3.org/WAI/EO/Drafts/tutorials/tables/scope/ - W3C tutorial on scope of headers.
-- https://css-tricks.com/everything-you-need-to-know-about-the-gap-after-the-list-marker/ - Unicode characters that can be used as a custom list marker.
+- https://css-tricks.com/everything-you-need-to-know-about-the-gap-after-the-list-marker/ - Unicode characters that can be used as custom list markers.
 
 ---
 
