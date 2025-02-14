@@ -92,12 +92,8 @@ main {
   width: fit-content;
 }
 
-section {
-}
-
 article {
   width: 100%;
-  /* margin: 0 auto; */
   padding: 0 32px var(--spacing-500-rem);
   background-color: var(--color-White);
 
@@ -119,7 +115,7 @@ article {
   img {
     --spacing--400-px: calc(-1 * var(--spacing-400-px));
 
-    /* Using negative margins & increase the width to expand through the container's inline paddings  */
+    /* Using negative margins & increase the width to expand through the article's inline paddings  */
     margin-block: 0 var(--spacing-500-rem);
     margin-inline: var(--spacing--400-px);
     width: calc(100% + (2 * var(--spacing-400-px)));
@@ -143,13 +139,11 @@ article {
   }
 
   section {
-    /* border: 1px solid red; */
     display: flex;
     flex-direction: column;
     gap: var(--spacing-300-rem);
   }
   section:nth-of-type(1n + 3) {
-    /* border: 1px solid green; */
     padding-top: var(--spacing-400-rem);
   }
   section:nth-of-type(1n + 2):not(:last-of-type) {
@@ -162,7 +156,7 @@ article {
     margin-block: var(--spacing-400-rem);
     padding: var(--spacing-300-rem) var(--spacing-300-px);
     background-color: var(--color-Rose-50);
-    border-radius: 12px;
+    border-radius: var(--spacing-150-px);
     gap: var(--spacing-200-rem);
 
     h2 {
@@ -174,7 +168,6 @@ article {
 img {
   display: block;
   object-fit: cover;
-  /* outline: 1px solid orange; */
 }
 
 h1 {
@@ -193,24 +186,9 @@ ul {
   li {
     padding-left: var(--40px);
     position: relative;
-
-    /* .bullet {
-      width: 16px;
-      margin-left: 8px;
-      flex-shrink: 0;
-      display: flex;
-      align-items: center;
-    }
-
-    .bullet::before {
-      content: '';
-      background-color: var(--color-Rose-800);
-      width: 4px;
-      height: 4px;
-      border-radius: 4px;
-    } */
   }
 
+  /* Custom bullet */
   li::before {
     /* Visual circle */
     width: var(--4px);
@@ -232,7 +210,6 @@ ul {
 }
 
 ol li {
-  /* margin-left: calc(1.5ch); */
   margin-left: calc(var(--16px) + var(--8px));
   padding-left: var(--16px);
 }
@@ -256,23 +233,11 @@ th,
 td {
   width: 50%;
 }
-th {
-  text-align: left;
-}
-tr:not(:first-of-type) th,
-tr:not(:first-of-type) td {
-  padding-top: var(--spacing-150-rem);
-}
-tr:not(:last-of-type) th,
-tr:not(:last-of-type) td {
-  /* figma border line is inside the padding */
-  border-bottom: 1px solid var(--color-Stone-150);
-  padding-bottom: var(--spacing-150-rem);
-}
 
 th {
   padding-inline: var(--spacing-400-rem) var(--spacing-100-rem);
   font: var(--text-preset-4);
+  text-align: left;
 }
 
 td {
@@ -281,36 +246,17 @@ td {
   font: var(--text-preset-4-bold);
 }
 
-/* 
-dl {
-  display: flex;
-  flex-wrap: wrap;
+tr:not(:first-of-type) th,
+tr:not(:first-of-type) td {
+  padding-top: var(--spacing-150-rem);
 }
 
-dt,
-dd {
-  width: 50%;
-}
-
-dt:not(:first-of-type),
-dd:not(:first-of-type) {
-  padding-top: 12px;
-}
-dt:not(:last-of-type),
-dd:not(:last-of-type) {
+tr:not(:last-of-type) th,
+tr:not(:last-of-type) td {
+  /* figma border line is inside the padding */
   border-bottom: 1px solid var(--color-Stone-150);
-  padding-bottom: 11px;
+  padding-bottom: var(--spacing-150-rem);
 }
-
-dt {
-  padding-inline: 32px 8px;
-}
-
-dd {
-  padding-inline: 8px 32px;
-  color: var(--color-Rose-800);
-  font-weight: bold;
-} */
 
 .attribution {
   border-top: 1px dashed var(--color-Stone-600);
