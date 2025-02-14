@@ -33,6 +33,7 @@
   --40px: 2.5rem;
   --48px: 3rem;
   --128px: 8rem;
+  --616px: 38.5rem;
 
   --spacing-50-px: 4px;
   --spacing-100-px: 8px;
@@ -80,17 +81,32 @@ body {
 }
 
 .container {
-  width: 100%;
+  width: fit-content;
   margin: 0 auto;
-  padding: 0 32px var(--spacing-500-rem);
-  /* border-inline: 1px solid brown; */
-  background-color: var(--color-White);
+  @media (min-width: calc( 768rem/16)) {
+    margin-block: var(--spacing-1600-rem);
+  }
+}
+
+main {
+  width: fit-content;
 }
 
 section {
 }
 
-main {
+article {
+  width: 100%;
+  /* margin: 0 auto; */
+  padding: 0 32px var(--spacing-500-rem);
+  background-color: var(--color-White);
+
+  @media (min-width: calc( 768rem/16)) {
+    max-width: var(--616px);
+    padding-block: var(--spacing-500-rem);
+    padding-inline: var(--spacing-500-px);
+    border-radius: var(--spacing-300-px);
+  }
   /* Use flex to prevent margin collapse */
   /* display: flex;
   flex-direction: column; */
@@ -104,15 +120,22 @@ main {
     --spacing--400-px: calc(-1 * var(--spacing-400-px));
 
     /* Using negative margins & increase the width to expand through the container's inline paddings  */
-
-    margin: 0 var(--spacing--400-px) var(--spacing-500-rem)
-      var(--spacing--400-px);
+    margin-block: 0 var(--spacing-500-rem);
+    margin-inline: var(--spacing--400-px);
     width: calc(100% + (2 * var(--spacing-400-px)));
 
     /* margin: 0 -32px calc(40rem / 16) -32px;
     width: calc(100% + (2 * 32px)); */
 
     height: auto;
+    object-fit: cover;
+
+    @media (min-width: calc( 768rem/16)) {
+      height: 300px;
+      margin-inline: 0;
+      width: 100%;
+      border-radius: 12px;
+    }
   }
 
   h1 {
@@ -295,9 +318,16 @@ dd {
   background-color: #f4f4f4;
   font-size: var(--11px);
   text-align: center;
-}
-.attribution a {
-  /* color: hsl(228, 45%, 44%); */
-  font-weight: 600;
-  color: var(--color-Stone-900);
+
+  a {
+    /* color: hsl(228, 45%, 44%); */
+    font-weight: 600;
+    color: var(--color-Stone-900);
+  }
+
+  @media (min-width: calc( 768rem/16)) {
+    border: none;
+    padding-block: var(--spacing-300-rem);
+    background-color: transparent;
+  }
 }
