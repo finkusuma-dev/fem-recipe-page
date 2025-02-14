@@ -168,7 +168,7 @@ ul {
   list-style: none;
 
   li {
-    padding-left: 40px;
+    padding-left: var(--40px);
     position: relative;
 
     /* .bullet {
@@ -198,7 +198,7 @@ ul {
 
     /* Visual circle positioning, stretch along `li` height */
     top: 50%;
-    left: 8px;
+    left: var(--8px);
     transform: translateY(-50%);
     position: absolute;
 
@@ -210,13 +210,13 @@ ul {
 
 ol li {
   /* margin-left: calc(1.5ch); */
-  margin-left: calc(16px + 8px);
-  padding-left: 16px;
+  margin-left: calc(var(--16px) + var(--8px));
+  padding-left: var(--16px);
 }
 
 li {
   + li {
-    margin-top: 8px;
+    margin-top: var(--8px);
   }
 }
 
@@ -238,22 +238,22 @@ th {
 }
 tr:not(:first-of-type) th,
 tr:not(:first-of-type) td {
-  padding-top: 12px;
+  padding-top: var(--spacing-150-rem);
 }
 tr:not(:last-of-type) th,
 tr:not(:last-of-type) td {
   /* figma border line is inside the padding */
   border-bottom: 1px solid var(--color-Stone-150);
-  padding-bottom: 11px;
+  padding-bottom: var(--spacing-150-rem);
 }
 
 th {
-  padding-inline: 32px 8px;
+  padding-inline: var(--spacing-400-rem) var(--spacing-100-rem);
   font: var(--text-preset-4);
 }
 
 td {
-  padding-inline: 8px 32px;
+  padding-inline: var(--spacing-100-rem) var(--spacing-400-rem);
   color: var(--color-Rose-800);
   font: var(--text-preset-4-bold);
 }
