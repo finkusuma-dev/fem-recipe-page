@@ -48,7 +48,7 @@ I added an alternate text to the `img`, but on [MDN Image Guide](https://develop
 
 #### 🔵 Each `h2` and its following content is wrapped inside `section`
 
-I'm not sure if it's a best practice to always wrap `h2` and its following content inside `section`, and also in which cases the section is not needed.
+I'm not sure if it's correct to wrap the each of `h2` and its following content inside `section`.
 
 #### 🔵 `<header>` inside `<main>`
 
@@ -170,6 +170,41 @@ If the preparation `section` or the `header`, `p`, and preparation `section` are
 - Screen readers: orca (linux), NVDA, Jaws (windows), talkback (android). Currently, using orca and talkback to test the accessibility of the page.
 
 ### Continued development
+
+- I wrap each of `h2` and its following content with `section`. But in [here](https://discord.com/channels/824970620529279006/1339214865243312128/1339227042784481290) Grace Snow's feedback on the same challenge mentions that the sections on the main don't bring semantic benefit, and only the preparation time needs to be put in section. Could someone explain why there are no semantic benefit here using the sections?
+- In [WebDev Semantic HTML](https://web.dev/learn/html/semantic-html), there is an example of the `header` inside `main`. In which cases can/should we use this?
+- This is the code I made in the unordered list to make the bullet stretch the `li` height. I use custom circle shape for visual, and a hidden bullet to make the screenreaders announce the bullet character.
+
+  ```css
+  ul {
+    list-style: none;
+  }
+
+  li {
+    padding-left: 40px;
+    position: relative;
+  }
+
+  li::before {
+    /* Visual circle */
+    width: 4px;
+    height: 4px;
+    border-radius: 4px;
+    background-color: var(--color-Rose-800);
+
+    /* Visual circle positioning, stretch along the `li` height */
+    top: 50%;
+    left: 8px;
+    transform: translateY(-50%);
+    position: absolute;
+
+    /* Visually hidden circle character so screenreader will announce the bullet character */
+    content: '\2022';
+    color: transparent;
+  }
+  ```
+
+  Is there maybe more simple solution for this stretch height bullet?
 
 ### Useful Resources
 
