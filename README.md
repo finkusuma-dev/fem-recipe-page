@@ -58,6 +58,41 @@ The `header` inside `main` is an example in [WebDev Semantic HTML](https://web.d
 
 ### CSS Implementations
 
+- Utilize CSS variables to store `px` and `rem` units as both are used depending on the need.
+
+  ```css
+  /* variable with rem unit, to use the size without design token*/
+  --4px: 0.25rem;
+
+  /* spacing variable with `px` unit */
+  --spacing-50px: 4px;
+
+  /* spacing variable with `rem` unit */
+  --spacing-50rem: calc(4rem / 16);
+  ```
+
+- Using `rem` for vertical spacings, and using `px` for horizontal spacings and other sizes that don't need to scale with the default font size.
+
+  Horizontal spacings that are related with text also use `rem`. For example: space between marker and list-item text.
+
+  Below are detail of props using `px` and `rem`:
+
+  `px`:
+
+  - Horizontal margin & padding.
+  - Image height: `px` is used to set the image height on the tablet design. If using `max-height`, the image height shrinks as it tries to calculate the height based on the image ratio. On mobile design image height is set to `auto`.
+  - Border radius.
+  - Border thickness.
+
+  `rem`:
+
+  - Vertical margin & padding.
+  - Container's width.
+  - Image width (Set to 100% from its parent `rem` width).
+  - font sizes.
+  - Space between marker and list item text.
+  - Inline text padding on `th` and `td`.
+
 - Positioning the image element on the mobile design. To make the image element full width, use negative margin and increase the width to extend through the inline paddings.
 - Creating marker spacing on the Instructions list. Before setting the margin and padding of the list-item according to Figma, first reset the margin & padding using:
 
