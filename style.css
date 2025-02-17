@@ -208,7 +208,7 @@ ul {
     position: absolute;
 
     /* Visually hidden circle character to make screenreaders announce the bullet character */
-    content: '\2022';
+    content: '';
     color: transparent;
   }
 }
