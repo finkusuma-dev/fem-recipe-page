@@ -33,28 +33,28 @@
   --40px: 2.5rem;
   --48px: 3rem;
   --128px: 8rem;
-  --616px: 38.5rem;
-  --736px: 46rem;
+  --max-width-table: calc(616rem / 16);
+  --max-width-desktop: calc(736rem / 16);
 
-  --spacing-50-px: 4px;
-  --spacing-100-px: 8px;
-  --spacing-150-px: 12px;
-  --spacing-200-px: 16px;
-  --spacing-300-px: 24px;
-  --spacing-400-px: 32px;
-  --spacing-500-px: 40px;
-  --spacing-600-px: 48px;
-  --spacing-1600-px: 128px;
+  --spacing-50px: 4px;
+  --spacing-100px: 8px;
+  --spacing-150px: 12px;
+  --spacing-200px: 16px;
+  --spacing-300px: 24px;
+  --spacing-400px: 32px;
+  --spacing-500px: 40px;
+  --spacing-600px: 48px;
+  --spacing-1600px: 128px;
 
-  --spacing-50-rem: calc(4rem / 16);
-  --spacing-100-rem: calc(8rem / 16);
-  --spacing-150-rem: calc(12rem / 16);
-  --spacing-200-rem: calc(16rem / 16);
-  --spacing-300-rem: calc(24rem / 16);
-  --spacing-400-rem: calc(32rem / 16);
-  --spacing-500-rem: calc(40rem / 16);
-  --spacing-600-rem: calc(48rem / 16);
-  --spacing-1600-rem: calc(128rem / 16);
+  --spacing-50rem: calc(4rem / 16);
+  --spacing-100rem: calc(8rem / 16);
+  --spacing-150rem: calc(12rem / 16);
+  --spacing-200rem: calc(16rem / 16);
+  --spacing-300rem: calc(24rem / 16);
+  --spacing-400rem: calc(32rem / 16);
+  --spacing-500rem: calc(40rem / 16);
+  --spacing-600rem: calc(48rem / 16);
+  --spacing-1600rem: calc(128rem / 16);
 
   --text-preset-1: 400 var(--36px) / 1 'YoungSerif', sans-serif;
   --text-preset-2: 400 var(--28px) / 1 'YoungSerif', sans-serif;
@@ -85,7 +85,7 @@ body {
   width: fit-content;
   margin: 0 auto;
   @media (min-width: calc( 768rem/16)) {
-    margin-block: var(--spacing-1600-rem);
+    margin-block: var(--spacing-1600rem);
   }
 }
 
@@ -95,17 +95,17 @@ main {
 
 article {
   width: 100%;
-  padding: 0 32px var(--spacing-500-rem);
+  padding: 0 32px var(--spacing-500rem);
   background-color: var(--color-White);
 
   @media (min-width: calc( 768rem/16)) {
-    max-width: var(--616px);
-    padding-block: var(--spacing-500-rem);
-    padding-inline: var(--spacing-500-px);
-    border-radius: var(--spacing-300-px);
+    max-width: var(--max-width-table);
+    padding-block: var(--spacing-500rem);
+    padding-inline: var(--spacing-500px);
+    border-radius: var(--spacing-300px);
   }
   @media (min-width: calc( 1440rem/16)) {
-    max-width: var(--736px);
+    max-width: var(--max-width-desktop);
   }
 
   /* header {
@@ -114,12 +114,12 @@ article {
   } */
 
   img {
-    --spacing--400-px: calc(-1 * var(--spacing-400-px));
+    --spacing--400-px: calc(-1 * var(--spacing-400px));
 
     /* Using negative margins & increase the width to expand through the article's inline paddings  */
-    margin-block: 0 var(--spacing-500-rem);
+    margin-block: 0 var(--spacing-500rem);
     margin-inline: var(--spacing--400-px);
-    width: calc(100% + (2 * var(--spacing-400-px)));
+    width: calc(100% + (2 * var(--spacing-400px)));
 
     /* margin: 0 -32px calc(40rem / 16) -32px;
     width: calc(100% + (2 * 32px)); */
@@ -136,29 +136,29 @@ article {
   }
 
   h1 {
-    margin-bottom: var(--spacing-300-rem);
+    margin-bottom: var(--spacing-300rem);
   }
 
   section {
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-300-rem);
+    gap: var(--spacing-300rem);
   }
   section:nth-of-type(1n + 3) {
-    padding-top: var(--spacing-400-rem);
+    padding-top: var(--spacing-400rem);
   }
   section:nth-of-type(1n + 2):not(:last-of-type) {
     /* figma border line is inside the padding */
     border-bottom: 1px solid var(--color-Stone-150);
-    padding-bottom: var(--spacing-400-rem);
+    padding-bottom: var(--spacing-400rem);
   }
 
   section.preparation {
-    margin-block: var(--spacing-400-rem);
-    padding: var(--spacing-300-rem) var(--spacing-300-px);
+    margin-block: var(--spacing-400rem);
+    padding: var(--spacing-300rem) var(--spacing-300px);
     background-color: var(--color-Rose-50);
-    border-radius: var(--spacing-150-px);
-    gap: var(--spacing-200-rem);
+    border-radius: var(--spacing-150px);
+    gap: var(--spacing-200rem);
 
     h2 {
       font: var(--text-preset-3);
@@ -236,32 +236,32 @@ td {
 }
 
 th {
-  padding-inline: var(--spacing-400-rem) var(--spacing-100-rem);
+  padding-inline: var(--spacing-400rem) var(--spacing-100rem);
   font: var(--text-preset-4);
   text-align: left;
 }
 
 td {
-  padding-inline: var(--spacing-100-rem) var(--spacing-400-rem);
+  padding-inline: var(--spacing-100rem) var(--spacing-400rem);
   color: var(--color-Rose-800);
   font: var(--text-preset-4-bold);
 }
 
 tr:not(:first-of-type) th,
 tr:not(:first-of-type) td {
-  padding-top: var(--spacing-150-rem);
+  padding-top: var(--spacing-150rem);
 }
 
 tr:not(:last-of-type) th,
 tr:not(:last-of-type) td {
   /* figma border line is inside the padding */
   border-bottom: 1px solid var(--color-Stone-150);
-  padding-bottom: var(--spacing-150-rem);
+  padding-bottom: var(--spacing-150rem);
 }
 
 .attribution {
   border-top: 1px dashed var(--color-Stone-600);
-  padding-block: var(--spacing-150-rem);
+  padding-block: var(--spacing-150rem);
   background-color: #f4f4f4;
   font-size: var(--11px);
   text-align: center;
@@ -274,7 +274,7 @@ tr:not(:last-of-type) td {
 
   @media (min-width: calc( 768rem/16)) {
     border: none;
-    padding-block: var(--spacing-300-rem);
+    padding-block: var(--spacing-300rem);
     background-color: transparent;
   }
 }
