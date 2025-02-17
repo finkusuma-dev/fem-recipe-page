@@ -114,24 +114,22 @@ article {
   } */
 
   img {
-    --spacing--400-px: calc(-1 * var(--spacing-400px));
+    /* negative spacing */
+    --spacing--400px: calc(-1 * var(--spacing-400px));
 
     /* Using negative margins & increase the width to expand through the article's inline paddings  */
     margin-block: 0 var(--spacing-500rem);
-    margin-inline: var(--spacing--400-px);
+    margin-inline: var(--spacing--400px);
     width: calc(100% + (2 * var(--spacing-400px)));
 
     /* margin: 0 -32px calc(40rem / 16) -32px;
     width: calc(100% + (2 * 32px)); */
 
-    height: auto;
-    object-fit: cover;
-
     @media (min-width: calc( 768rem/16)) {
-      height: 300px;
       margin-inline: 0;
       width: 100%;
-      border-radius: 12px;
+      height: 300px;
+      border-radius: var(--spacing-150px);
     }
   }
 
@@ -144,9 +142,12 @@ article {
     flex-direction: column;
     gap: var(--spacing-300rem);
   }
+
+  /* add top padding start from the 3rd section */
   section:nth-of-type(1n + 3) {
     padding-top: var(--spacing-400rem);
   }
+  /* add border and bottom padding start from the 2nd section and doesn't include the last section */
   section:nth-of-type(1n + 2):not(:last-of-type) {
     /* figma border line is inside the padding */
     border-bottom: 1px solid var(--color-Stone-150);
@@ -167,6 +168,7 @@ article {
 }
 
 img {
+  height: auto;
   display: block;
   object-fit: cover;
 }
@@ -228,35 +230,34 @@ li {
 
 table {
   border-collapse: collapse;
-}
 
-th,
-td {
-  width: 50%;
-}
+  th,
+  td {
+    width: 50%;
+  }
 
-th {
-  padding-inline: var(--spacing-400rem) var(--spacing-100rem);
-  font: var(--text-preset-4);
-  text-align: left;
-}
+  th {
+    padding-inline: var(--spacing-400rem) var(--spacing-100rem);
+    font: var(--text-preset-4);
+    text-align: left;
+  }
 
-td {
-  padding-inline: var(--spacing-100rem) var(--spacing-400rem);
-  color: var(--color-Rose-800);
-  font: var(--text-preset-4-bold);
-}
+  td {
+    padding-inline: var(--spacing-100rem) var(--spacing-400rem);
+    color: var(--color-Rose-800);
+    font: var(--text-preset-4-bold);
+  }
 
-tr:not(:first-of-type) th,
-tr:not(:first-of-type) td {
-  padding-top: var(--spacing-150rem);
-}
+  /* Padding & border don't work on `tr` but do work on `th` and `td` */
+  tr:not(:first-of-type) :is(th, td) {
+    padding-top: var(--spacing-150rem);
+  }
 
-tr:not(:last-of-type) th,
-tr:not(:last-of-type) td {
-  /* figma border line is inside the padding */
-  border-bottom: 1px solid var(--color-Stone-150);
-  padding-bottom: var(--spacing-150rem);
+  tr:not(:last-of-type) :is(th, td) {
+    /* figma border line is inside the padding */
+    border-bottom: 1px solid var(--color-Stone-150);
+    padding-bottom: var(--spacing-150rem);
+  }
 }
 
 .attribution {
