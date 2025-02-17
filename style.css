@@ -82,6 +82,7 @@ body {
 }
 
 .container {
+  position: relative;
   width: fit-content;
   margin: 0 auto;
   @media (min-width: calc( 768rem/16)) {
@@ -274,7 +275,14 @@ table {
   }
 
   @media (min-width: calc( 768rem/16)) {
+    /* On tablet & desktop, set position to absolute in order to remove the additional height on the bottom caused by this attribution element */
+    position: absolute;
+    left: 0;
+    right: 0;
+
     border: none;
+
+    /* Didn't know when using absolute positioning, padding still has an effect */
     padding-block: var(--spacing-300rem);
     background-color: transparent;
   }
