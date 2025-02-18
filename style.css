@@ -188,28 +188,23 @@ ul {
   list-style: none;
 
   li {
-    padding-left: var(--40px);
-    position: relative;
+    display: flex;
+    align-items: center;
   }
 
   /* Custom bullet */
   li::before {
-    /* Visual circle */
+    content: '';
+    display: inline-block;
+    flex-shrink: 0;
+
+    /* Circle bullet*/
     width: var(--4px);
     height: var(--4px);
+    margin-left: var(--8px);
+    margin-right: calc(var(--32px) - var(--4px));
     border-radius: var(--4px);
     background-color: var(--color-Rose-800);
-    /* flex-shrink: 0; */
-
-    /* Visual circle positioning, stretch along `li` height */
-    top: 50%;
-    left: var(--8px);
-    transform: translateY(-50%);
-    position: absolute;
-
-    /* Visually hidden circle character to make screenreaders announce the bullet character */
-    content: '';
-    color: transparent;
   }
 }
 
