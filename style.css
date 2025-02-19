@@ -138,32 +138,32 @@ article {
     margin-bottom: var(--spacing-300rem);
   }
 
-  section {
+  .recipe-info {
     display: flex;
     flex-direction: column;
     gap: var(--spacing-300rem);
   }
 
   /* add top padding start from the 3rd section */
-  section:nth-of-type(1n + 3) {
+  .recipe-info:nth-of-type(n + 3) {
     padding-top: var(--spacing-400rem);
   }
   /* add border and bottom padding start from the 2nd section and doesn't include the last section */
-  section:nth-of-type(1n + 2):not(:last-of-type) {
+  .recipe-info:nth-of-type(n + 2):not(:last-of-type) {
     /* figma border line is inside the padding */
     border-bottom: 1px solid var(--color-Stone-150);
     padding-bottom: var(--spacing-400rem);
   }
 
-  section.preparation {
+  .preparation {
     margin-block: var(--spacing-400rem);
     padding: var(--spacing-300rem) var(--spacing-300px);
     background-color: var(--color-Rose-50);
     border-radius: var(--spacing-150px);
-    gap: var(--spacing-200rem);
 
     h2 {
       font: var(--text-preset-3);
+      margin-bottom: var(--spacing-200rem);
     }
   }
 }
