@@ -56,7 +56,8 @@
   --spacing-600rem: calc(48rem / 16);
   --spacing-1600rem: calc(128rem / 16);
 
-  --text-preset-1: 400 var(--36px) / 1 'YoungSerif', sans-serif;
+  --text-preset-1: 400 var(--40px) / 1 'YoungSerif', sans-serif;
+  --text-preset-1-mobile: 400 var(--36px) / 1 'YoungSerif', sans-serif;
   --text-preset-2: 400 var(--28px) / 1 'YoungSerif', sans-serif;
   --text-preset-3: 600 var(--20px) / 1 'Outfit', sans-serif;
   --text-preset-4: 400 var(--16px) / 1.5 'Outfit', sans-serif;
@@ -175,8 +176,12 @@ img {
 }
 
 h1 {
-  font: var(--text-preset-1);
+  font: var(--text-preset-1-mobile);
   color: var(--color-Stone-900);
+
+  @media (min-width: calc(768rem/16)) {
+    font: var(--text-preset-1);
+  }
 }
 
 h2 {
