@@ -6,7 +6,10 @@ This is a solution to the [Recipe page challenge on Frontend Mentor](https://www
 
 - [Frontend Mentor - Recipe page solution](#frontend-mentor---recipe-page-solution)
   - [Table of contents](#table-of-contents)
-  - [Links](#links)
+  - [Overview](#overview)
+    - [The challenge](#the-challenge)
+    - [Screenshot](#screenshot)
+    - [Links](#links)
   - [My Process](#my-process)
     - [Built with](#built-with)
     - [HTML Implementations](#html-implementations)
@@ -23,8 +26,19 @@ This is a solution to the [Recipe page challenge on Frontend Mentor](https://www
     - [Notes](#notes)
     - [Continued development](#continued-development)
     - [Useful Resources](#useful-resources)
+  - [Author](#author)
 
-## Links
+## Overview
+
+### The challenge
+
+Your challenge is to build out this recipe page and get it looking as close to the design as possible.
+
+### Screenshot
+
+<img src="./_docs/images/screenshot.jpg" width="800"/>
+
+### Links
 
 - Challenge URL: [https://www.frontendmentor.io/challenges/recipe-page-KiTsR8QQKm](https://www.frontendmentor.io/challenges/recipe-page-KiTsR8QQKm)
 - Live Site URL: [https://finkusuma-dev.github.io/fem-recipe-page](https://finkusuma-dev.github.io/fem-recipe-page)
@@ -246,6 +260,12 @@ I'll make sure to remember these feedback from Grace Snow for the next challenge
 - https://stackoverflow.com/questions/8900571/two-column-table-or-dl - Simple guide to choose whether to use two columns table or description list.
 - https://www.w3.org/WAI/tutorials/tables/, https://www.w3.org/WAI/EO/Drafts/tutorials/tables/scope/ - W3C tutorial on scope of headers.
 - https://css-tricks.com/everything-you-need-to-know-about-the-gap-after-the-list-marker/ - Unicode characters that can be used as custom list markers.
+
+## Author
+
+- Github - [@finkusuma-dev](https://github.com/finkusuma-dev)
+- Frontend Mentor - [@finkusuma-dev](https://www.frontendmentor.io/profile/finkusuma-dev)
+- Twitter - [@finkusuma_dev](https://www.twitter.com/finkusuma_dev)
 
 ---
 
