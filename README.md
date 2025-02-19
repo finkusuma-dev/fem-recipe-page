@@ -40,7 +40,7 @@ Your challenge is to build out this recipe page and get it looking as close to t
 
 ### Links
 
-- Challenge URL: [https://www.frontendmentor.io/challenges/recipe-page-KiTsR8QQKm](https://www.frontendmentor.io/challenges/recipe-page-KiTsR8QQKm)
+- Solution URL: [https://www.frontendmentor.io/solutions/responsive-recipe-page-utilizing-both-px-and-rem-units-j1Pfeyljuj](https://www.frontendmentor.io/solutions/responsive-recipe-page-utilizing-both-px-and-rem-units-j1Pfeyljuj)
 - Live Site URL: [https://finkusuma-dev.github.io/fem-recipe-page](https://finkusuma-dev.github.io/fem-recipe-page)
 
 ## My Process
