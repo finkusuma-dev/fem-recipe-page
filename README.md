@@ -242,7 +242,7 @@ td {
 
 ### Notes
 
-- Screen readers: orca (linux), NVDA, Jaws (windows), talkback (android). Currently, using orca and talkback to test the accessibility of the page.
+- Screen readers: orca (linux), NVDA, Jaws (windows), talkback (android). Currently, using NVDA, Orca and Talkback to test the accessibility of the page.
 
 ### Continued development
 
