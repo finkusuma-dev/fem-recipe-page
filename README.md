@@ -11,12 +11,15 @@ This is a solution to the [Recipe page challenge on Frontend Mentor](https://www
     - [Built with](#built-with)
     - [HTML Implementations](#html-implementations)
     - [HTML Issues](#html-issues)
-      - [🔵 `<img>` alternate text](#-img-alternate-text)
-      - [🔵 Each `h2` and its following content is wrapped inside `section`](#-each-h2-and-its-following-content-is-wrapped-inside-section)
-      - [🔵 `<header>` inside `<main>`](#-header-inside-main)
+      - [🟠 `<img>` alternate text](#-img-alternate-text)
+      - [🟠 `<header>` inside `<main>`](#-header-inside-main)
     - [CSS Implementations](#css-implementations)
-    - [CSS Issues](#css-issues)
-      - [🔵 Section styling](#-section-styling)
+      - [🔵 CSS variables for `px` and `rem`](#-css-variables-for-px-and-rem)
+      - [🔵 Implementation of `px` and `rem`](#-implementation-of-px-and-rem)
+      - [🔵 Create marker spacing in the instructions list](#-create-marker-spacing-in-the-instructions-list)
+      - [🔵 Stretch height of the list-item marker](#-stretch-height-of-the-list-item-marker)
+      - [🔵 Set the block paddings of `recipe-info` div](#-set-the-block-paddings-of-recipe-info-div)
+      - [🔵 Styling Nutrition list](#-styling-nutrition-list)
     - [Notes](#notes)
     - [Continued development](#continued-development)
     - [Useful Resources](#useful-resources)
@@ -39,108 +42,102 @@ This is a solution to the [Recipe page challenge on Frontend Mentor](https://www
 
 - Wrapped the solution inside article, as it contains information that can be distributed independently. [^1]
 - Put the nutrition list inside a `table` element.
+- Wrap each of the `h2` and its following content with `div`, as it doesn't have a semantic benefit when using `section`. There are already `h2` elements which can be used as an accessibility navigation.
 
 ### HTML Issues
 
-#### 🔵 `<img>` alternate text
+#### 🟠 `<img>` alternate text
 
 I added an alternate text to the `img`, but on [MDN Image Guide](https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Structuring_content/HTML_images#alternative_text), it mentions `alt` can be empty if the body adequately describes the image. Currently, I'm unsure if the image is sufficiently described by this text on the paragraph: "This classic omelette combines beaten eggs cooked to perfection, optionally filled with your choice of cheese, vegetables, or meats."
 
-#### 🔵 Each `h2` and its following content is wrapped inside `section`
+#### 🟠 `<header>` inside `<main>`
 
-I'm not sure if it's correct to wrap the each of `h2` and its following content inside `section`.
-
-#### 🔵 `<header>` inside `<main>`
-
-Currently, `h1` and `p` elements are directly inside `article`. I asked _Chrome AI Assistant_ on the `article` element if it's better to wrap the `h1` and `p` with the `header`, and the response was that it's a good practice but not mandatory. It could enhance the semantic structure and provide a clear container for introductory content. But having only two elements `h1` and `p`, adding `header` might be considered unnecessary complexity.
-
-The `header` inside `main` is an example in [WebDev Semantic HTML](https://web.dev/learn/html/semantic-html).
+There is an example of a `header` inside `main` in [WebDev Semantic HTML](https://web.dev/learn/html/semantic-html). The header becomes "headerAsNonLandmark" and it is not used or given any special status by screenreaders.
 
 ### CSS Implementations
 
-- Utilize CSS variables to store `px` and `rem` units as both are used depending on the need.
+#### 🔵 CSS variables for `px` and `rem`
 
-  ```css
-  /* variable with rem unit, to use the size without design token*/
-  --4px: 0.25rem;
+Utilize CSS variables to store `px` and `rem` units as both are used depending on the need.
 
-  /* spacing variable with `px` unit */
-  --spacing-50px: 4px;
+```css
+/* variable with rem unit, to use the size without design token*/
+--4px: 0.25rem;
 
-  /* spacing variable with `rem` unit */
-  --spacing-50rem: calc(4rem / 16);
-  ```
+/* spacing variable with `px` unit */
+--spacing-50px: 4px;
 
-- Use `rem` for vertical spacings, and use `px` for horizontal spacings and other sizes that don't need to scale with the default font size.
+/* spacing variable with `rem` unit */
+--spacing-50rem: calc(4rem / 16);
+```
 
-  Horizontal spacings that are related with text also use `rem`. For example: space between marker and list-item text.
+#### 🔵 Implementation of `px` and `rem`
 
-  Below are list of props using `px` and `rem`:
+Use `rem` for vertical spacings, and use `px` for horizontal spacings and other sizes that don't need to scale with the default font size.
 
-  `px`:
+Horizontal spacings that are related with text also use `rem`. For example: space between marker and list-item text.
 
-  - Horizontal margin & padding.
-  - Image height: `px` is used to set the image height on the tablet design. If using `max-height`, the image height shrinks as it tries to calculate the height based on the image ratio. On mobile design image height is set to `auto`.
-  - Border radius.
-  - Border thickness.
+Below are list of props using `px` and `rem`:
 
-  `rem`:
+`px`:
 
-  - Vertical margin & padding.
-  - Container's width.
-  - Image width (Set to 100% from its parent `rem` width).
-  - font size.
-  - Space between marker and list item text.
-  - Inline padding on `th` and `td`.
+- Horizontal margin & padding.
+- Image height: `px` is used to set the image height on the tablet design. If using `max-height`, the image height shrinks as it tries to calculate the height based on the image ratio. On mobile design image height is set to `auto`.
+- Border radius.
+- Border thickness.
+
+`rem`:
+
+- Vertical margin & padding.
+- Container's width.
+- Image width (Set to 100% from its parent `rem` width).
+- font size.
+- Space between marker and list item text.
+- Inline padding on `th` and `td`.
 
 - Position the image element on the mobile design.
 
   To make the image element full width, use negative margin and increase the width to extend through the inline paddings.
 
-- Create marker spacing on the instructions list.
+#### 🔵 Create marker spacing in the instructions list
 
-  Before setting the margin and padding of the list-item according to Figma, first reset the margin & padding using:
+Before setting the margin and padding of the list-item according to Figma, first reset the margin & padding using:
 
-  ```css
-  * {
-    margin: 0;
-    padding: 0;
-  }
-  ```
+```css
+* {
+  margin: 0;
+  padding: 0;
+}
+```
 
-  Then set the margin to align the marker with the text above it.
+Then set the margin to align the marker with the text above it.
 
-  ```css
-  ol li {
-    margin-left: 16px;
-  }
-  ```
+```css
+ol li {
+  margin-left: 16px;
+}
+```
 
   <img src="./_docs/images/li_align.jpg" width="300">
 
-  And then set the margin and padding accordingly:
+And then set the margin and padding accordingly:
 
-  ```css
-  ol li {
-    margin-left: calc(16px + 8px);
-    padding-left: 16px;
-  }
-  ```
+```css
+ol li {
+  margin-left: calc(16px + 8px);
+  padding-left: 16px;
+}
+```
 
   <img src="./_docs/images/li_apply_margin_padding.jpg" width="300">
 
-- Make the list-item marker stretch along the `li` height.
+#### 🔵 Stretch height of the list-item marker
 
-  After trial and error, this is what I came up with. I removed the list-style using `list-style: none`. Then created a new bullet (a circle shape) using `li::before` pseudo-element. I positioned it vertically center using `position:absolute; top:50%; transform: translateY(-50%);`. It worked, but there was a problem, screenreaders didn't announce the bullet character.
+After trial and error to make the list-item marker stretch along the `li` height, this is what I came up with. I removed the list-style using `list-style: none`. Then created a new bullet (a circle shape) using `li::before` pseudo-element. I positioned it vertically center using `position:absolute; top:50%; transform: translateY(-50%);`.
 
-  Then I removed the circle shape and used `content: '\2020'` to add the bullet character. The screenreader did announce it, but it was really difficult to precisely center the character vertically.
-
-  My final solution is adding the circle shape again, but then hide the bullet character by setting the `color` to `transparent`.
-
-  ```css
-  ul {
-    list-style: none;
-  }
+```css
+ul {
+  list-style: none;
 
   li {
     padding-left: 40px;
@@ -148,6 +145,7 @@ The `header` inside `main` is an example in [WebDev Semantic HTML](https://web.d
   }
 
   li::before {
+    content: '';
     /* Visual circle */
     width: 4px;
     height: 4px;
@@ -159,51 +157,74 @@ The `header` inside `main` is an example in [WebDev Semantic HTML](https://web.d
     left: 8px;
     transform: translateY(-50%);
     position: absolute;
-
-    /* Visually hidden circle character so screenreader will announce the bullet character */
-    content: '\2022';
-    color: transparent;
   }
-  ```
+}
+```
 
-- Nutrition list: The table had addition spaces somewhere that made overall height was more than the total height of the rows. This caused by default `border-collapse` property is `separate`, which separate the border between cells. To fix this I set `border-collapse` to `collapse`.
-
-  ```css
-  table {
-    border-collapse: collapse;
-  }
-  ```
-
-  There was also issue where `th` (1st column) and `td` (2nd column) width are not equal. When the table occupies the parent's width, the column's width distribution is affected by the basis width each of the column. And each of the column's width depends on the most wide cell in that column, which is impacted by the cell content.
-
-  To make both columns equal, I set the width to `50%`.
-
-  ```css
-  th,
-  td {
-    width: 50%;
-  }
-  ```
-
-### CSS Issues
-
-#### 🔵 Section styling
-
-Preparation section is the first sibling of other sections, which makes the CSS styling of other sections a bit more complex:
+The circle shape positioning implementation with flex:
 
 ```css
-/* Start from 3th section */
-section:nth-of-type(1n + 3) {
+ul {
+  list-style: none;
+
+  li {
+    display: flex;
+    align-items: center;
+  }
+
+  /* Custom bullet */
+  li::before {
+    content: '';
+    display: inline-block;
+    flex-shrink: 0;
+
+    /* Circle bullet*/
+    width: var(--4px);
+    height: var(--4px);
+    margin-left: var(--8px);
+    margin-right: calc(var(--32px) - var(--4px));
+    border-radius: var(--4px);
+    background-color: var(--color-Rose-800);
+  }
+}
+```
+
+I used visually hidden bullet character `\2022` to make screenreaders announce the bullet, but Grace Snow suggests that it's better to not use it but add `role=list` on the `ul` instead.
+
+#### 🔵 Set the block paddings of `recipe-info` div
+
+```css
+/* Start from 3th div */
+.recipe-info:nth-of-type(1n + 3) {
   padding-top: 32px;
 }
-/* Start from 2nd section, and doesn't include the last section*/
-section:nth-of-type(1n + 2):not(:last-of-type) {
+/* Start from 2nd div, and doesn't include the last div*/
+.recipe-info:nth-of-type(1n + 2):not(:last-of-type) {
   padding-bottom: 32px;
   border-bottom: 1px solid var(--color-Stone-150);
 }
 ```
 
-If the preparation `section` or the `header`, `p`, and preparation `section` are put inside `div`, styling other sections can be more simple with `section:not(:first-of-type)` and `section:not(:last-of-type)`.
+#### 🔵 Styling Nutrition list
+
+The table had addition spaces somewhere that made overall height was more than the total height of the rows. This caused by default `border-collapse` property is `separate`, which separate the border between cells. To fix this I set `border-collapse` to `collapse`.
+
+```css
+table {
+  border-collapse: collapse;
+}
+```
+
+There was also issue where `th` (1st column) and `td` (2nd column) width are not equal. When the table occupies the parent's width, the column's width distribution is affected by the basis width each of the column. And each of the column's width depends on the most wide cell in that column, which is impacted by the cell content.
+
+To make both columns equal, I set the width to `50%`.
+
+```css
+th,
+td {
+  width: 50%;
+}
+```
 
 ### Notes
 
@@ -211,46 +232,16 @@ If the preparation `section` or the `header`, `p`, and preparation `section` are
 
 ### Continued development
 
-- I wrap each of `h2` and its following content with `section`. But in [here](https://discord.com/channels/824970620529279006/1339214865243312128/1339227042784481290) Grace Snow's feedback on the same challenge mentions that the sections on the main don't bring semantic benefit, and only the preparation time needs to be put in section. Could someone explain why there are no semantic benefit here using the sections?
-- In [WebDev Semantic HTML](https://web.dev/learn/html/semantic-html), there is an example of the `header` inside `main`. In which cases can/should we use this?
-- This is the code I made in the unordered list to make the bullet stretch the `li` height. I use custom circle shape for visual, and a hidden bullet to make the screenreaders announce the bullet character.
+I'll make sure to remember these feedback from Grace Snow for the next challenges:
 
-  ```css
-  ul {
-    list-style: none;
-  }
-
-  li {
-    padding-left: 40px;
-    position: relative;
-  }
-
-  li::before {
-    /* Visual circle */
-    width: 4px;
-    height: 4px;
-    border-radius: 4px;
-    background-color: var(--color-Rose-800);
-
-    /* Visual circle positioning, stretch along the `li` height */
-    top: 50%;
-    left: 8px;
-    transform: translateY(-50%);
-    position: absolute;
-
-    /* Visually hidden circle character so screenreader will announce the bullet character */
-    content: '\2022';
-    color: transparent;
-  }
-  ```
-
-  Is there maybe more simple solution for this stretch height bullet?
+- For not using the `section` if there is already heading in the block. The headings are used not only to structure the page but also for the accessibility navigation.
+- `header` inside `main` doesn't have any meaning and not given any special status by screenreaders.
+- To not use content in `::before` pseudo-element of the custom bullet and giving the `role=list` in the `ul` element.
 
 ### Useful Resources
 
-- https://www.w3.org/WAI/ARIA/apg/
-- https://www.w3.org/WAI/ARIA/apg/patterns/landmarks/examples/general-principles.html
-- https://web.dev/learn/html/semantic-html?continue=https%3A%2F%2Fweb.dev%2Flearn%2Fhtml%2F%23article-https%3A%2F%2Fweb.dev%2Flearn%2Fhtml%2Fsemantic-html
+- https://www.w3.org/WAI/ARIA/apg/patterns/landmarks/examples/general-principles.html - Example of landmarks.
+- https://web.dev/learn/html/semantic-html - WebDev Semantic HTML guide.
 - https://discord.com/channels/824970620529279006/1339214865243312128/1339227042784481290 - Grace Snow's discord feedback on the same challenge.
 - https://stackoverflow.com/questions/8900571/two-column-table-or-dl - Simple guide to choose whether to use two columns table or description list.
 - https://www.w3.org/WAI/tutorials/tables/, https://www.w3.org/WAI/EO/Drafts/tutorials/tables/scope/ - W3C tutorial on scope of headers.
