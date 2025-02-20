@@ -19,6 +19,7 @@ This is a solution to the [Recipe page challenge on Frontend Mentor](https://www
     - [CSS Implementations](#css-implementations)
       - [🔵 CSS variables for `px` and `rem`](#-css-variables-for-px-and-rem)
       - [🔵 Implementation of `px` and `rem`](#-implementation-of-px-and-rem)
+      - [🔵 Image element on the mobile design](#-image-element-on-the-mobile-design)
       - [🔵 Create marker spacing in the instructions list](#-create-marker-spacing-in-the-instructions-list)
       - [🔵 Stretch height of the list-item marker](#-stretch-height-of-the-list-item-marker)
       - [🔵 Set the block paddings of `recipe-info` div](#-set-the-block-paddings-of-recipe-info-div)
@@ -123,9 +124,9 @@ Below are list of props using `px` and `rem`:
 - Space between marker and list item text.
 - Inline padding on `th` and `td`.
 
-- Position the image element on the mobile design.
+#### 🔵 Image element on the mobile design
 
-  To make the image element full width, use negative margin and increase the width to extend through the inline paddings.
+To make the image element full width, use negative margin and increase the width to extend through the inline paddings.
 
 #### 🔵 Create marker spacing in the instructions list
 
