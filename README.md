@@ -57,6 +57,20 @@ Your challenge is to build out this recipe page and get it looking as close to t
 - Wrapped the solution inside article, as it contains information that can be distributed independently. [^1]
 - Put the nutrition list inside a `table` element.
 - Wrap each of the `h2` and its following content with `div`, as it doesn't have a semantic benefit when using `section`. There are already `h2` elements which can be used as an accessibility navigation.
+- Using table for nutrition list with the first column as row headers.
+  ```html
+  <table>
+    <tr>
+      <th scope="row">Calories</th>
+      <td>277kcal</td>
+    </tr>
+    <tr>
+      <th scope="row">Carbs</th>
+      <td>0g</dtd< /tr>
+    <tr>
+    ...
+  </table>
+  ```
 
 ### HTML Issues
 
@@ -259,6 +273,7 @@ I'll make sure to remember these feedback from Grace Snow for the next challenge
 - https://discord.com/channels/824970620529279006/1339214865243312128/1339227042784481290 - Grace Snow's discord feedback on the same challenge.
 - https://stackoverflow.com/questions/8900571/two-column-table-or-dl - Simple guide to choose whether to use two columns table or description list.
 - https://www.w3.org/WAI/tutorials/tables/, https://www.w3.org/WAI/EO/Drafts/tutorials/tables/scope/ - W3C tutorial on scope of headers.
+- https://developer.mozilla.org/en-US/docs/Web/HTML/Element/th - MDN `th` documentation.
 - https://css-tricks.com/everything-you-need-to-know-about-the-gap-after-the-list-marker/ - Unicode characters that can be used as custom list markers.
 
 ## Author
